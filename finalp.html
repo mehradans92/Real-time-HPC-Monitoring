@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="refresh" content="40" />
+	<link rel="stylesheet" href="normalize.css" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>TheWhiteLab</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css" />
+	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"> </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		ImageArray = new Array();
+		ImageArray[0] = '389450-svetik.jpg';
+		ImageArray[1] = 'Rush_rhees.png';
+		ImageArray[2] = 'beach.jpg';
+		ImageArray[3] = 'bridge.jpg';
+		ImageArray[4] = 'Falls.jpg';
+		ImageArray[5] = 'lake.jpg';
+		ImageArray[6] = 'landscape.jpg';
+		ImageArray[7] = 'moon.jpg';
+		ImageArray[8] = 'nature_1.jpg';
+		ImageArray[9] = 'nature05.jpg';
+		ImageArray[10] = 'Cornwall_England_Sea.jpg';
+		ImageArray[11] = 'fresh_nature_tree.jpg';
+		ImageArray[12] = 'Amazing_Sunset_R.jpg';
+		ImageArray[13] = 'Beautiful_Aurora.jpg';
+		ImageArray[14] = 'Devil_bridge_river-.jpg';
+		ImageArray[15] = 'Mountain_At_Nigh.jpg';
+		ImageArray[16] = 'bridge2.jpg';
+		ImageArray[17] = 'horseshoe-bend.jpg';
+		ImageArray[18] = 'lanscape-lake.jpg';
+		ImageArray[19] = 'northern-lights.jpg';
+		ImageArray[20] = 'mid.jpg';
+		ImageArray[21] = 'DSCF5279.jpg';
+		ImageArray[22] = 'nature-2-26-17.jpg';
+		ImageArray[23] = 'nature-1.jpg';
+		ImageArray[24] = 'Grotto-ontario.jpg';
+		ImageArray[25] = 'waterfall-at-hamilton-pool.jpg';
+		ImageArray[26] = '167609.jpg';
+		ImageArray[27] = 'Si-o-se-pol.jpg';
+		ImageArray[28] = 'thumb-1920-814136.jpg';
+		ImageArray[29] = 'Vintage-Tree-Nature.jpg';
+		ImageArray[30] = '390625.jpg';
+		ImageArray[31] = 'image-04.jpg';
+		ImageArray[32] = 'Taj-Mahal-Hd-.jpg';
+		ImageArray[33] = 'Rbtxcy6Rp.jpg';
+		ImageArray[34] = '189178.jpg';
+		ImageArray[35] = 'derril-roy-.jpg';
+		ImageArray[36] = 'landscape-sky-clouds-.jpg';
+		ImageArray[37] = 'Webp.net-resizeimage-6.jpg';
+		ImageArray[38] = 'e88267.jpg';
+		ImageArray[39] = 'lanterns.jpg';
+		ImageArray[40] = 'Oaxaca-Mexico.jpg';
+		ImageArray[41] = 'Banff2.jpg';
+		ImageArray[42] = 'yellowstone.jpg';
+		ImageArray[43] = 'Hiking-Stabbeskaret-.jpg';
+		ImageArray[44] = 'senja-island-fjord-autumn.jpg';
+		ImageArray[45] = 'il_fullxfull.1689872616_fjvc.jpg';
+		ImageArray[46] = 'leaves_stones_map.jpg';
+		ImageArray[47] = 'Amazing_Autumn_Japan_Mount_Fuji_i.jpg';
+		ImageArray[48] = 'amazing-nature-.jpg';
+		ImageArray[49] = 'DmyMoI.jpg';
+		ImageArray[50] = 'most_beautiful_sunsets.jpg';
+		ImageArray[51] = 'Alley.jpg';
+		ImageArray[52] = 'awesome-nature-wallpaper-2.jpg';
+		ImageArray[53] = 'land_scape.jpg';
+		ImageArray[54] = 'QztlVTN.jpg';
+		ImageArray[55] = 'boat.jpg';
+		ImageArray[56] = 'selfjord_reflections.jpg';
+		ImageArray[57] = 'Top-Fall-Wallpaper.jpg';
+
+		function getRandomImage() {
+			var num = Math.floor(Math.random() * ImageArray.length);
+			var img = ImageArray[num];
+			document.getElementById("randImage").innerHTML = ('<img src="' + 'Media/' + img + '" class="bg" />')
+		}
+	</script>
+	<style type="text/css">
+		html {
+			overflow: hidden;
+		}
+	</style>
+	<link rel="stylesheet" href="styles/debug.css">
+	<style>
+		.Background {
+			position fixed;
+			top=0;
+			transform: translate(0, -212px);
+			min-height: 1180px;
+			max-height: 1180px;
+		}
+
+		.img.bg {
+			max-width: 1080px;
+			height: 60%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			object-fit: contain;
+			z-index: -1;
+		}
+
+		.responsive {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.center {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transform: translate(480px, -1000px);
+			margin-left: auto;
+			margin-right: auto;
+			z-index: 1;
+		}
+
+		.imgstyle {
+			display: flex;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			width: 100%;
+			max-width: 700px;
+			z-index: 1;
+			transform: translate(-50%, -190%);
+		}
+
+		.gauge {
+			position: fixed;
+			transform: translate(1365px, 105px);
+			z-index: 1;
+		}
+		
+		tr:nth-child(even) {
+			background-color: #e6f2ff;
+		}
+
+		.slideshow-container {
+			max-width: 1000px;
+		}
+
+		.fade {
+			-webkit-animation-name: fade;
+			-webkit-animation-duration: 1.5s;
+			animation-name: fade;
+			animation-duration: 1.5s;
+		}
+		
+
+		.mySlides {
+			display: none;
+		}
+		.clock {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-51%) translateY(-330%);
+			color: rgb(19, 19, 19);
+			font-size: 55px;
+			font-family: Orbitron;
+			letter-spacing: 5px;
+			z-index: 1;
+			background-color: #f3f3f3;
+			box-shadow: 7px 7px 5px black;
+			border-style: solid;
+ 			border-color: rgb(46, 46, 46);
+			opacity: 0.8;
+			padding-top: 0px;
+ 			padding-right: 20px;
+  			padding-bottom: 0px;
+  			padding-left: 25px;
+
+		}
+
+	</style>
+</head>
+
+<body onload="getRandomImage()">
+	<div class="reveal" style="cursor: none;">
+	<div id="chart_div" style="width: 450px; height: 120px;" class="gauge" alt=""> </div>
+	<a class="weatherwidget-io" alt="" href="https://forecast7.com/en/43d16n77d61/rochester/" data-label_1="ROCHESTER NY" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-theme="weather_one" data-days="5"
+		style="width: 350px; height: 120px;position: fixed; transform: translate(125px, 100px) ; opacity: 0.9 ;z-index: 1">ROCHESTER NY WEATHER</a>
+	<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+	<div class="Background">
+		<div id="randImage"></div>
+	</div>
+	<div id="headerContent">
+		<div class="img-container">
+			<div class="imgstyle">
+				<figrue>
+					<img border="0" src="Media\front-text.png" />
+					</figure>
+			</div>
+		</div>
+	</div>
+	</div>
+	<section class="hero">
+	</section>
+	<section class="hero">
+		<div class="slideshow-container">
+			<div class="mySlides">
+				<div class="table-responsive">
+					<font size="4px" >
+						<table class="table center" id="HPC_monitoring_table" border="2" style="opacity: 0.88; font-weight: 550;font-family:Copperplate;">
+							<tr>
+								<th> </th>
+								<th style="text-align:center">Job ID </th>
+								<th style="text-align:center">User</th>
+								<th style="text-align:center">Job Name</th>
+								<th style="text-align:center">Run-Time</th>
+								<th style="text-align:center">Time-limit</th>
+								<th style="text-align:center">#Nodes</th>
+								<th style="text-align:center">#CPUs</th>
+								<th style="text-align:center">Node List</th>
+							</tr>
+						</table>
+					</font>
+				</div>
+			</div>
+		</div>
+		<div class="mySlides" >
+			<div class="container" style=" transform: translate(320px, -1000px)">
+				<img src="Media\chart_bar_low.png" width="80%"  alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
+			</div>
+		</div>
+		<div class="mySlides" >
+			<div class="container" style=" transform: translate(320px, -1000px)">
+				<img src="Media\chart_bar_high.png" width="80%"  alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
+			</div>
+		</div>
+		<div class="mySlides" >
+			<div class="container" style=" transform: translate(320px, -1000px)">
+				<img src="Media\chart_pi.png" width="80%"  alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
+			</div>
+		</div>
+		</div>
+	</section>
+</div>
+</body>
+
+</html>
+<script>
+	var slideIndex = 0;
+	carousel();
+
+	function carousel() {
+		var i;
+		var x = document.getElementsByClassName("mySlides");
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+		slideIndex++;
+		if (slideIndex > x.length) {
+			slideIndex = 1
+		}
+		x[slideIndex - 1].style.display = "block";
+		setTimeout(carousel, 10000); // Change image every 10 seconds
+	}
+	$(document).ready(function() {
+		$.getJSON("Json/j1.json", function(data) {
+			var HPC_monitoring = '';
+			var count = 1;
+			$.each(data, function(key, value) {
+				HPC_monitoring += '<tr >' + '<th >' + count + '</th>';
+				HPC_monitoring += '<td style="text-align:center">' + value.Job_ID + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.User + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.Job_Name + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.Run_time + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.Time_limit + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.N_Nodes + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.N_CPU + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.Node_Name + '</td>';
+				HPC_monitoring += '</tr>';
+				count++;
+			});
+			$("#HPC_monitoring_table tbody").append(HPC_monitoring);
+		});
+	});
+	$(document).ready(function() {
+		$.getJSON("Json/j_total.json", function(data) {
+			var Users = [];
+			var CPU_time = [];
+			$.each(data, function(key, value) {
+				Users.push(value.User);
+				CPU_time.push(value.t_CPUs);
+			});
+			d = new Date();
+			var m_names = ['January', 'February', 'March',
+				'April', 'May', 'June', 'July',
+				'August', 'September', 'October', 'November', 'December'
+			];
+			var current_month = m_names[d.getMonth()];
+			let mychart = document.getElementById('mychart').getContext('2d')
+
+			let topuserchart = new Chart(mychart, {
+				type: 'bar',
+				data: {
+					labels: Users,
+					datasets: [{
+						label: [],
+						data: CPU_time,
+						backgroundColor: ['rgba(75,192,192,0.8)', 'rgba( 150,30,30,0.8)', 'rgba(45,74,180,0.8)', 'rgba(70,251,132,0.8)', 'rgba(255,277,86,0.8)', 'rgba(255,159,64,0.8)', 'rgba(104,10,198,0.8)', 'rgba(94,94,94,0.8)',
+							'rgba(38,109,60,0.8)',
+							'rgba(255,99,132,0.8)', 'rgba(30,49,255,0.8)'
+						],
+						borderWidth: 0.75,
+						borderColor: 'black'
+					}]
+				},
+				options: {
+					plugins: {
+						datalabels: {
+							anchor: 'end',
+							align: 'top',
+							// and if you need to format how the value is displayed...
+							formatter: function(value, context) {
+								return GetValueFormatted(value);
+							}
+						}
+					},
+					maintainAspectRatio: false,
+					layout: {
+						padding: {
+							left: 20,
+							right: 0,
+							top: 20,
+							bottom: 20
+						}
+					},
+					title: {
+						display: true,
+						text: ['Top Users of ' + current_month],
+						fontSize: 40,
+						fontColor: 'black'
+					},
+					legend: {
+						display: false
+					},
+					scales: {
+						xAxes: [{
+							ticks: {
+								fontSize: 20,
+								fontColor: 'black'
+							},
+							maxBarThickness: 120
+						}],
+						yAxes: [{
+							ticks: {
+								suggestedMin: 0,
+								fontSize: 20
+							},
+							scaleLabel: {
+								display: true,
+								labelString: 'CPU-hour',
+								fontSize: 30,
+								fontColor: 'black'
+							}
+						}]
+					}
+				}
+			});
+		});
+	});
+	google.charts.load('current', {
+		'packages': ['gauge']
+	});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+		var sinfo;
+		$.getJSON("Json/j_monthly_avg.json", function(dat) {
+			$.getJSON("Json/total_current_CPU.json", function(dat_current) {
+				var current_CPU = dat_current.Total_current_CPU;
+				var monthly_CPU = dat.avg_CPUhour;
+				var data = google.visualization.arrayToDataTable([
+					['Label', 'Value'],
+					['Current CPU', Number(current_CPU)],
+					['Monthly CPU', Number(monthly_CPU)],
+				]);
+				var options = {
+					width: 400,
+					height: 300,
+					redFrom: 90,
+					redTo: 100,
+					yellowFrom: 75,
+					yellowTo: 90,
+					minorTicks: 10
+				};
+				var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			});
+		});
+	}
+</script>
+<script>
+	! function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (!d.getElementById(id)) {
+			js = d.createElement(s);
+			js.id = id;
+			js.src = 'https://weatherwidget.io/js/widget.min.js';
+			fjs.parentNode.insertBefore(js, fjs);
+		}
+	}(document, 'script', 'weatherwidget-io-js');
+</script>
+<script>
+	function showTime(){
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
+    
+    if(h == 0){
+        h = 12;
+    }
+     
+    if (h>=12){
+	    session ="PM";}
+    if(h > 12){
+        h = h - 12;
+    }
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+    
+    setTimeout(showTime, 1000);
+    
+}
+
+showTime();
+</script>

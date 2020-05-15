@@ -1,0 +1,7 @@
+JOBID,USER,NAME,TIME,TIME_LIMIT,NODES,CPUS,NODELIST
+9190073,damirkul,4_copies,4-02:34:51,5-00:00:00,2,64,bhd[0038-0039]
+9239075,mchakra2,bash,25:04,12:00:00,1,1,bhd0038
+9238922,mgholiza,bash,2:07:45,8:00:00,1,1,bhd0041
+9238822,mchakra2,spawner-jupyterhub,3:21:55,8:00:00,1,1,bhd0041
+9238795,mchakra2,bash,3:36:12,12:00:00,1,1,bhd0041
+9231551,mchakra2,job.srun,20:33:30,1-16:00:00,1,1,bhd0040
