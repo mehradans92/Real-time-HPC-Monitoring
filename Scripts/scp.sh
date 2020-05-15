@@ -10,8 +10,7 @@ do
 	sacct -r awhite -a -p --delimiter=',' --format "User,AllocNodes,AllocCPUs,Elapsed" -S $START_CURRENT_MONTH > /home/mgholiza/HPC_monitoring/CSVs/sacct.csv
 	##sinfo -p awhite -o "%F,%C" > /home/mgholiza/HPC_monitoring/CSVs/sinfo_data.csv
 	python writejson.py && python sacct.py
-    	sshpass -p "Whitelabisawesome" scp /home/mgholiza/HPC_monitoring/Media/*.png /home/mgholiza/HPC_monitoring/Json/*.json pi@10.4.9.70:/home/pi/HPC_monitoring/
-	sshpass -p "Whitelabisawesome" ssh pi@10.4.9.70 "cd HPC_monitoring && mv *.json ./Json && mv *.png ./Media"
-	#sshpass -p "Whitelabisawesome" ssh pi@10.4.9.70 "cd HPC_monitoring && python3 writejson.py && python3 sacct.py "
+    	sshpass -p "YOUR_RASP_password" scp /home/mgholiza/HPC_monitoring/Media/*.png /home/mgholiza/HPC_monitoring/Json/*.json pi@10.4.9.70:/home/pi/HPC_monitoring/
+	sshpass -p "YOUR_RASP_password" ssh pi@10.4.9.70 "cd HPC_monitoring && mv *.json ./Json && mv *.png ./Media"
 
 done
