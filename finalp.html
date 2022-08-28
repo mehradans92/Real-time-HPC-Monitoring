@@ -74,14 +74,32 @@
 		ImageArray[55] = '389450-svetik.jpg';
 		ImageArray[56] = 'selfjord_reflections.jpg';
 		ImageArray[57] = 'Top-Fall-Wallpaper.jpg';
-		
+	
+		var birth_day_dict = {
+				'Mehrad': '2-25',
+				'Andrew': '8-26',
+           	};
+		function getKeyByValue(object, value) {
+				return Object.keys(object).find(key => object[key] === value);
+			}
 
 		function getRandomImage() {
 			var num = Math.floor(Math.random() * ImageArray.length);
 			var img = ImageArray[num];
 			document.getElementById("randImage").innerHTML = ('<img src="' + 'Media/' + img + '" class="bg" />')
+			// check birthday
+			var date = new Date();
+			d = date.getUTCDate();
+			m = date.getUTCMonth() + 1;
+			var today = [date.getUTCMonth() + 1,date.getUTCDate()].join("-")
+			birth_day_dude = getKeyByValue(birth_day_dict, today)
+			if (birth_day_dude != undefined) {
+				$('.houdini').show();
+				document.getElementById('birthday').innerHTML = "Happy Birthday " + birth_day_dude + "!";
+			}
 		}
-	</script>
+		
+		</script>
 	<style type="text/css">
 		html {
 			overflow: hidden;
@@ -93,6 +111,7 @@
 *, *:after, *:before {
   box-sizing: border-box;
 }
+
 
 html {
 	font-family: 'IBM Plex Mono', sans-serif;
@@ -381,6 +400,8 @@ html {
 			position: fixed;
 			transform: translate(1365px, 105px);
 			z-index: 1;
+			
+			
 		}
 		
 		tr:nth-child(even) {
@@ -388,7 +409,7 @@ html {
 		}
 
 		.slideshow-container {
-			max-width: 1000px;
+			max-width: 2000px;
 		}
 
 		.fade {
@@ -403,8 +424,18 @@ html {
 			display: none;
 			
 		}
+		#gauge table {
+			border-spacing: 3000px;
+		}
 
+		
+		
 
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
 	</style>
 </head>
 
@@ -415,15 +446,17 @@ html {
 
 
 <body onload="getRandomImage()">
+	
 	<div class="Background"
 	     id="randImage"></div>
 
 	<div class="reveal" style="cursor: none;"> 
 	
-	<div id="chart_div" style="width: 450px; height: 120px; position: fixed;
+	<div id="chart_div_cpu" style="width: 450px; height: 120px; position: fixed;
 	right: 1.5%;
 	top: 7%;
 	transform: translate(0%, 0%);" class="gauge" alt=""> </div>
+
 	<a class="weatherwidget-io" alt="" href="https://forecast7.com/en/43d16n77d61/rochester/" data-label_1="ROCHESTER NY" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-theme="weather_one" data-days="5"
 		style="width: 350px; height: 120px;position: fixed; transform: translate(125px, 100px) ; opacity: 0.9 ;z-index: 1">ROCHESTER NY WEATHER</a>
 	<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
@@ -443,6 +476,7 @@ html {
 			</div>
 		</div>
 	</div>
+
 	<!-- <div class="Background">
 		<div class="Background" id="randImage"></div>
 	</div> -->
@@ -456,22 +490,34 @@ html {
 		</div>
 	</div>
 
+<!-- <style type='text/css'>
 	
+</style> -->
+
+	<div id="chart_div_gpu"
+		style="width: 450px; height: 420px; position: fixed;
+			left: 4%;
+			top: 78%;
+			transform: translate(0%, 0%);
+			"
+		class="gauge"
+		alt=""> 
+	</div>
 	<section class="hero">
 		<div class="slideshow-container">
 			<div class="mySlides">
 				<div class="table-responsive">
-					<font size="4px" >
-						<table class="table center" id="HPC_monitoring_table" border="2" style="opacity: 0.88; font-weight: 500;font-family:IBM Plex Mono; top: 40%; left: 50%; transform: translate(-50%, 0%);">
+					<font size="2.9px" >
+						<table class="table center" id="HPC_monitoring_table" border="2" style="opacity: 0.88; border-radius: 8px; font-weight: 500; font-family:IBM Plex Mono; top: 40%; left: 50%; transform: translate(-50%, 0%);">
 							<tr>
 								<th> </th>
 								<th style="text-align:center">Job ID </th>
 								<th style="text-align:center">User</th>
 								<th style="text-align:center">Job Name</th>
-								<th style="text-align:center">Run Time</th>
-								<th style="text-align:center">Time Limit</th>
-								<th style="text-align:center; width:20%" width="500%">Nodes</th>
-								<th style="text-align:center; width:20%" width="500%">#Nodes</th>
+								<th style="text-align:center;">Run Time</th>
+								<th style="text-align:center;">Time Limit</th>
+								<th style="text-align:center;">Nodes</th>
+								<th style="text-align:center;">#Nodes</th>
 								<th style="text-align:center">#CPUs</th>
 								<th style="text-align:center">#GPUs</th>
 								<th style="text-align:center">Memory</th>
@@ -500,9 +546,62 @@ html {
 		</div>
 	</section>
 </div>
-</body>
+<div class="houdini" style="width: 300px; height: 200px;;position:fixed; top: 75%; left: 81%; border-radius:20px;
+		background-color: #fff492; font-family:IBM Plex Mono;
+		border: 5px solid green;
+		padding: 50px;
+		margin: 20px;
+		display: none;"> 
+
+	<p class="animate-charcter" id="birthday"
+	style="text-align: center; transform: translate(0, -45%)">	
+	</p>
+		<div style="transform:  translateY(20px)">
+		<div class="party"
+		     title=":party:">
+			<a title=":party:"
+			   href="https://goabstract.com">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</a>
+		</div>
+	
+		<div id="glasses-wrap">
+			<div id="glasses"></div>
+		</div>
+	
+		<div class="hands">
+			<div class="hand left">✋</div>
+			<div class="hand right">✋</div>
+		</div>
+	
+		<div class="notes">
+			<div>♫</div>
+			<div>♪</div>
+			<div>♫</div>
+			<div>♪</div>
+			<div>♫</div>
+			<div>♪</div>
+			<div>♫</div>
+			<div>♪</div>
+			<div>♫</div>
+			<div>♪</div>
+		</div>
+		</div>
+</div>
+
+
+<!-- <div id="birthday"></div>
+
+<div id="date_dependent"></div> -->
 
 </html>
+
+s
 <script>
 	var slideIndex = 0;
 	carousel();
@@ -529,110 +628,19 @@ html {
 				HPC_monitoring += '<td style="text-align:center">' + value.Job_ID + '</td>';
 				HPC_monitoring += '<td style="text-align:center">' + value.User + '</td>';
 				HPC_monitoring += '<td style="text-align:center">' + value.Job_Name + '</td>';
-				HPC_monitoring += '<td style="text-align:center" width="50%">' + value.Run_time + '</td>';
-				HPC_monitoring += '<td style="text-align:center" width="50%">' + value.Time_limit + '</td>';
-				HPC_monitoring += '<td style="text-align:center" width="50%">' + value.Node_Name + '</td>';
-				HPC_monitoring += '<td style="text-align:center" width="200%">' + value.N_Nodes + '</td>';
-				HPC_monitoring += '<td style="text-align:center" width="50%">' + value.N_CPU + '</td>';
-				HPC_monitoring += '<td style="text-align:center" width="50%">' + value.GRES + '</td>';
-				HPC_monitoring += '<td style="text-align:center" width="50%">' + value.MIN_MEMORY + '</td>';
+				HPC_monitoring += '<td style="text-align:center"> ' + value.Run_time + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.Time_limit + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.Node_Name + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.N_Nodes + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.N_CPU + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.GRES + '</td>';
+				HPC_monitoring += '<td style="text-align:center">' + value.MIN_MEMORY + '</td>';
 				HPC_monitoring += '</tr>';
 				count++;
 			});
 			$("#HPC_monitoring_table tbody").append(HPC_monitoring);
 		});
 	});
-	$(document).ready(function() {
-		$.getJSON("Json/j_total.json", function(data) {
-			var Users = [];
-			var CPU_time = [];
-			$.each(data, function(key, value) {
-				Users.push(value.User);
-				CPU_time.push(value.t_CPUs);
-			});
-			d = new Date();
-			var m_names = ['January', 'February', 'March',
-				'April', 'May', 'June', 'July',
-				'August', 'September', 'October', 'November', 'December'
-			];
-			var current_month = m_names[d.getMonth()];
-			let mychart = document.getElementById('mychart').getContext('2d')
-
-			let topuserchart = new Chart(mychart, {
-				type: 'bar',
-				data: {
-					labels: Users,
-					datasets: [{
-						label: [],
-						data: CPU_time,
-						backgroundColor: ['rgba(75,192,192,0.8)', 'rgba( 150,30,30,0.8)', 'rgba(45,74,180,0.8)', 'rgba(70,251,132,0.8)', 'rgba(255,277,86,0.8)', 'rgba(255,159,64,0.8)', 'rgba(104,10,198,0.8)', 'rgba(94,94,94,0.8)',
-							'rgba(38,109,60,0.8)',
-							'rgba(255,99,132,0.8)', 'rgba(30,49,255,0.8)'
-						],
-						borderWidth: 0.75,
-						borderColor: 'black'
-					}]
-				},
-				options: {
-					plugins: {
-						datalabels: {
-							anchor: 'end',
-							align: 'top',
-							// and if you need to format how the value is displayed...
-							formatter: function(value, context) {
-								return GetValueFormatted(value);
-							}
-						}
-					},
-					maintainAspectRatio: false,
-					layout: {
-						padding: {
-							left: 20,
-							right: 0,
-							top: 20,
-							bottom: 20
-						}
-					},
-					title: {
-						display: true,
-						text: ['Top Users of ' + current_month],
-						fontSize: 40,
-						fontColor: 'black',
-						fontFamily: 'IBM Plex Mono'
-					},
-					legend: {
-						display: false
-					},
-					scales: {
-						xAxes: [{
-							ticks: {
-								fontSize: 20,
-								fontColor: 'black'
-							},
-							maxBarThickness: 120
-						}],
-						yAxes: [{
-							ticks: {
-								suggestedMin: 0,
-								fontSize: 20
-							},
-							scaleLabel: {
-								display: true,
-								labelString: 'CPU-hour',
-								fontSize: 30,
-								fontColor: 'black'
-							}
-						}]
-					}
-				}
-			});
-		});
-	});
-	google.charts.load('current', {
-		'packages': ['gauge']
-	});
-	google.charts.setOnLoadCallback(drawChart);
-
 	function drawChart() {
 		var sinfo;
 		$.getJSON("Json/j_monthly_avg.json", function(dat) {
@@ -653,11 +661,45 @@ html {
 					yellowTo: 90,
 					minorTicks: 10
 				};
-				var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+				var chart = new google.visualization.Gauge(document.getElementById('chart_div_cpu'));
 				chart.draw(data, options);
 			});
 		});
 	}
+	function drawChart_gpu() {
+			var sinfo;
+			$.getJSON("Json/j_monthly_avg.json", function (dat) {
+				$.getJSON("Json/total_current_CPU.json", function (dat_current) {
+					var current_CPU = dat_current.Total_current_CPU;
+					var monthly_CPU = dat.avg_CPUhour;
+					var data = google.visualization.arrayToDataTable([
+						['Label', 'Value'],
+						['Current GPU', Number(current_CPU)],
+						['Monthly GPU', Number(monthly_CPU)],
+					]);
+					var options = {
+						width: 300,
+						height: 300,
+						redFrom: 90,
+						redTo: 100,
+						yellowFrom: 75,
+						yellowTo: 90,
+						minorTicks: 10,
+	
+					};
+					var chart = new google.visualization.Gauge(document.getElementById('chart_div_gpu'));
+					chart.draw(data, options);
+				});
+			});
+		}
+google.charts.load('current', {
+		'packages': ['gauge']
+	});
+	google.charts.setOnLoadCallback(drawChart);
+google.charts.load('current', {
+		'packages': ['gauge']
+	});
+	google.charts.setOnLoadCallback(drawChart_gpu);
 </script>
 <script>
 	! function(d, s, id) {
@@ -670,6 +712,9 @@ html {
 		}
 	}(document, 'script', 'weatherwidget-io-js');
 </script>
+
+
+
 <script>
 	function showTime(){
     var date = new Date();
@@ -704,7 +749,6 @@ showTime();
 </script>
 <script>
 	(function () {
-
 
 			var months = ["January", "February", "March", "April", "May", "June",
 				"July", "August", "September", "October", "November", "December"
@@ -748,8 +792,6 @@ showTime();
 			for (var s = 1; s < 13; s++) {
 				$('.hour').append('<span style="transform: rotate(' + 30 * s + 'deg) translateX(100px)">' + s + '</span>')
 			}
-
-
 			setInterval(getTime, 1000);
 			getTime();
 
