@@ -7,7 +7,7 @@ from collections import defaultdict
 csvfile = open('/home/mgholiza/HPC_monitoring/CSVs/HPC_data.csv', 'r')
 next(csvfile)
 jsonfile = open('/home/mgholiza/HPC_monitoring/Json/j1.json', 'w')
-fieldnames = ("Job_ID","User","Job_Name","Run_time","Time_limit","N_Nodes","N_CPU","Node_Name")
+fieldnames = ("Job_ID","User","Job_Name","Run_time","Time_limit","N_Nodes","N_CPU","Node_Name","GRES","MIN_MEMORY")
 reader = csv.DictReader(csvfile, fieldnames)		
 output = []
 for each in reader:
