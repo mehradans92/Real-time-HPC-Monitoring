@@ -896,7 +896,7 @@ button.__active {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 
