@@ -3,9 +3,34 @@ import csv
 import numpy
 import json
 import random
+import math
 from collections import defaultdict
 from datetime import datetime
 import time
+import matplotlib.pyplot as plt
+import numpy as np
+import urllib
+import urllib.request
+import matplotlib.font_manager as font_manager
+
+urllib.request.urlretrieve('https://github.com/google/fonts/raw/main/ofl/ibmplexmono/IBMPlexMono-Regular.ttf', 'IBMPlexMono-Regular.ttf')
+fe = font_manager.FontEntry(
+    fname='IBMPlexMono-Regular.ttf',
+    name='plexmono')
+font_manager.fontManager.ttflist.append(fe)
+plt.rcParams.update({'axes.facecolor':'#f5f4e9', 
+            'grid.color' : '#AAAAAA', 
+            'axes.edgecolor':'#333333', 
+            'figure.facecolor':'#FFFFFF', 
+            'axes.grid': False,
+            'axes.prop_cycle':   plt.cycler('color', plt.cm.Dark2.colors),
+            'font.family': fe.name,
+            'figure.figsize': (3.5,3.5 / 1.2),
+            'ytick.left': True,
+            'xtick.bottom': True   
+           })
+
+
 def get_sec(time_str):
 	d=0
 	h, m, s = time_str.split(':')
@@ -45,10 +70,30 @@ for each in reader:
 			each['User'] = "Heta"
 		if each['User'] == "gwellawa":
 			each['User'] = "Geemi"
-		if each['User'] == "sjakymiw":
-			each['User'] = "Sebastian"
+		if each['User'] == "smichtav":
+			each['User'] = "Shane"
 		if each['User'] == "oakif":
 			each['User'] = "Oion"	
+		if each ['User'] == "aseshad4":
+			each ['User'] = "Aditi"
+		if each ['User'] == "ngokul":
+			each ['User'] = "Navneeth"
+		if each['User'] == "swrig30":
+			each['User'] = "Sam"
+		if each['User'] == "cmilas":
+			each['User'] = "Kat"
+		if each['User'] == "wzhu15":
+			each['User'] = "Wei"
+		if each['User'] == "kashraf":
+			each['User'] = "Kareem"
+		if each['User'] == "aroll":
+			each['User'] = "Allison"
+		if each['User'] == "qcampbe2":
+			each['User'] = "Quinny"
+		if each['User'] == "mcaldasr":
+			each['User'] = "Mayk"
+		if each['User'] == "jmedina9":
+			each['User'] = "Jorge"
 		each['Elapsed_time']= get_sec(each['Elapsed_time'])	
 		each['t_CPUs']=float(each['Elapsed_time'])*float(each['N_CPUs'])/3600
 		each['t_Nodes']=float(each['Elapsed_time'])*float(each['N_nodes'])/3600
@@ -71,15 +116,15 @@ now = datetime.now()
 time0=now.replace(day=1 ,hour=0, minute=0, second=0, microsecond=0)
 TIME = (now - time0 ).total_seconds()/3600
 CPU_usage=total_CPU_hour/(CPU*TIME)*100
+print (CPU_usage)
 Node_usage=total_node_hour/(NODES*TIME)*100
 jsonfile_monthly_avg = open('../Json/j_monthly_avg.json', 'w')
-avg_output={"avg_CPUhour": str(int(CPU_usage)),"avg_Nodehour" : str(int(Node_usage))}
+avg_output={"avg_CPUhour": str(math.ceil(CPU_usage)),"avg_Nodehour" : str(math.ceil(Node_usage))}
 json.dump(avg_output, jsonfile_monthly_avg)
 jsonfile_monthly_avg.close()
 csvfile.close()
 
-import matplotlib.pyplot as plt
-import numpy as np
+
 with open('../Json/j_total.json') as json_file:
     data = json.load(json_file)
     USERS=[]
@@ -106,7 +151,7 @@ plt.legend(labels,
 plt.title('Top Users of ' + currentMonth,fontsize=32,fontweight="bold") 
 plt.tight_layout()        
 #plt.show()
-plt.savefig('../Media/chart_pi.png', dpi = 300)
+plt.savefig('../Media/chart_pi.png', dpi = 100)
 plt.close()
 json_file.close()
 
@@ -114,7 +159,7 @@ json_file.close()
 low_data=[]
 high_data=[]
 for k,v in enumerate(data):
-		if v['t_CPUs']<5000:
+		if v['t_CPUs']<500:
 			low_data.append(data[k])
 		else:
 			high_data.append(data[k])
@@ -127,6 +172,7 @@ for p in low_data:
 		TIME.append(p['t_CPUs'])
 plt.subplots(figsize=(14,8))
 ax=plt.bar(range(len(low_data)), list(TIME), align='center',color =clr[0:len(clr)],edgecolor='k')
+plt.xlim(-1, len(low_data))
 plt.xticks(range(len(low_data)), list(USERS),fontsize=17)
 plt.yticks(fontsize=20)
 plt.ylabel("CPU-hours",fontsize=25)
@@ -138,14 +184,14 @@ for i, v in enumerate(low_data):
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.grid(linestyle='--')
-plt.savefig("../Media/chart_bar_low.png", dpi = 300)
+plt.savefig("../Media/chart_bar_low.png", dpi = 100)
 #plt.show()
 plt.close()
 
 ## Freqent users
 if len(high_data)==0:
 	os.system('rm -rf /home/mgholiza/HPC_monitoring/Media/chart_bar_high.png')
-	os.system('sshpass -p "Whitelabisawesome" ssh pi@10.4.9.70 "cd HPC_monitoring && rm -rf ./Media/chart_bar_high.png "')
+	os.system('sshpass -p "Whitelabisawesome" ssh pi@10.17.0.250 "cd HPC_monitoring && rm -rf ./Media/chart_bar_high.png "')
 else:
 	USERS=[]
 	TIME=[]
@@ -154,7 +200,7 @@ else:
 			TIME.append(p['t_CPUs'])
 	plt.subplots(figsize=(14,8))
 	ax=plt.bar(range(len(high_data)), list(TIME), align='center',color =clr[0:len(clr)],edgecolor='k')
-	plt.xlim(-1, len(high_data)+1)
+	plt.xlim(-1, len(high_data))
 	plt.xticks(range(len(high_data)), list(USERS),fontsize=17)
 	plt.yticks(fontsize=20)
 	plt.ylabel("CPU-hours",fontsize=25)
@@ -168,7 +214,7 @@ else:
 	plt.xticks(rotation=45)
 	plt.tight_layout()
 	plt.grid(linestyle='--')
-	plt.savefig("../Media/chart_bar_high.png", dpi = 300)
+	plt.savefig("../Media/chart_bar_high.png", dpi = 100)
 	#plt.show()
 	plt.close()
 

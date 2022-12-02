@@ -1,442 +1,524 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta http-equiv="refresh" content="40" />
-	<link rel="stylesheet" href="normalize.css" />
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>TheWhiteLab</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css" />
-	<link href='https://fonts.googleapis.com/css?family=IBM Plex Mono'
-	      rel='stylesheet'>
-	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"> </script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript">
-		ImageArray = new Array();
-		ImageArray[0] = 'boat.jpg';
-		ImageArray[1] = 'Rush_rhees.png';
-		ImageArray[2] = 'beach.jpg';
-		ImageArray[3] = 'bridge.jpg';
-		ImageArray[4] = 'Falls.jpg';
-		ImageArray[5] = 'lake.jpg';
-		ImageArray[6] = 'landscape.jpg';
-		ImageArray[7] = 'moon.jpg';
-		ImageArray[8] = 'nature_1.jpg';
-		ImageArray[9] = 'nature05.jpg';
-		ImageArray[10] = 'Cornwall_England_Sea.jpg';
-		ImageArray[11] = 'fresh_nature_tree.jpg';
-		ImageArray[12] = 'Amazing_Sunset_R.jpg';
-		ImageArray[13] = 'Beautiful_Aurora.jpg';
-		ImageArray[14] = 'Devil_bridge_river-.jpg';
-		ImageArray[15] = 'Mountain_At_Nigh.jpg';
-		ImageArray[16] = 'bridge2.jpg';
-		ImageArray[17] = 'horseshoe-bend.jpg';
-		ImageArray[18] = 'lanscape-lake.jpg';
-		ImageArray[19] = 'northern-lights.jpg';
-		ImageArray[20] = 'mid.jpg';
-		ImageArray[21] = 'DSCF5279.jpg';
-		ImageArray[22] = 'nature-2-26-17.jpg';
-		ImageArray[23] = 'nature-1.jpg';
-		ImageArray[24] = 'Grotto-ontario.jpg';
-		ImageArray[25] = 'waterfall-at-hamilton-pool.jpg';
-		ImageArray[26] = '167609.jpg';
-		ImageArray[27] = 'Si-o-se-pol.jpg';
-		ImageArray[28] = 'thumb-1920-814136.jpg';
-		ImageArray[29] = 'Vintage-Tree-Nature.jpg';
-		ImageArray[30] = '390625.jpg';
-		ImageArray[31] = 'image-04.jpg';
-		ImageArray[32] = 'Taj-Mahal-Hd-.jpg';
-		ImageArray[33] = 'Rbtxcy6Rp.jpg';
-		ImageArray[34] = '189178.jpg';
-		ImageArray[35] = 'derril-roy-.jpg';
-		ImageArray[36] = 'landscape-sky-clouds-.jpg';
-		ImageArray[37] = 'Webp.net-resizeimage-6.jpg';
-		ImageArray[38] = 'e88267.jpg';
-		ImageArray[39] = 'lanterns.jpg';
-		ImageArray[40] = 'Oaxaca-Mexico.jpg';
-		ImageArray[41] = 'Banff2.jpg';
-		ImageArray[42] = 'yellowstone.jpg';
-		ImageArray[43] = 'Hiking-Stabbeskaret-.jpg';
-		ImageArray[44] = 'senja-island-fjord-autumn.jpg';
-		ImageArray[45] = 'il_fullxfull.1689872616_fjvc.jpg';
-		ImageArray[46] = 'leaves_stones_map.jpg';
-		ImageArray[47] = 'Amazing_Autumn_Japan_Mount_Fuji_i.jpg';
-		ImageArray[48] = 'amazing-nature-.jpg';
-		ImageArray[49] = 'DmyMoI.jpg';
-		ImageArray[50] = 'most_beautiful_sunsets.jpg';
-		ImageArray[51] = 'Alley.jpg';
-		ImageArray[52] = 'awesome-nature-wallpaper-2.jpg';
-		ImageArray[53] = 'land_scape.jpg';
-		ImageArray[54] = 'QztlVTN.jpg';
-		ImageArray[55] = '389450-svetik.jpg';
-		ImageArray[56] = 'selfjord_reflections.jpg';
-		ImageArray[57] = 'Top-Fall-Wallpaper.jpg';
-	
-		var birth_day_dict = {
-				'Mehrad': '2-25',
-				'Andrew': '8-26',
-           	};
-		function getKeyByValue(object, value) {
-				return Object.keys(object).find(key => object[key] === value);
-			}
+    <meta http-equiv="refresh" content="45" />
+    <link rel="stylesheet" href="normalize.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TheWhiteLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Mono' rel='stylesheet'>
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        ImageArray = new Array();
+        ImageArray[0] = 'boat.jpg';
+        ImageArray[1] = 'Rush_rhees.png';
+        ImageArray[2] = 'beach.jpg';
+        ImageArray[3] = 'bridge.jpg';
+        ImageArray[4] = 'Falls.jpg';
+        ImageArray[5] = 'lake.jpg';
+        ImageArray[6] = 'landscape.jpg';
+        ImageArray[7] = 'moon.jpg';
+        ImageArray[8] = 'nature_1.jpg';
+        ImageArray[9] = 'nature05.jpg';
+        ImageArray[10] = 'Cornwall_England_Sea.jpg';
+        ImageArray[11] = 'fresh_nature_tree.jpg';
+        ImageArray[12] = 'Amazing_Sunset_R.jpg';
+        ImageArray[13] = 'Beautiful_Aurora.jpg';
+        ImageArray[14] = 'Devil_bridge_river-.jpg';
+        ImageArray[15] = 'Mountain_At_Nigh.jpg';
+        ImageArray[16] = 'bridge2.jpg';
+        ImageArray[17] = 'horseshoe-bend.jpg';
+        ImageArray[18] = 'lanscape-lake.jpg';
+        ImageArray[19] = 'northern-lights.jpg';
+        ImageArray[20] = 'mid.jpg';
+        ImageArray[21] = 'lanscape-lake.jpg';
+        ImageArray[22] = 'nature-2-26-17.jpg';
+        ImageArray[23] = 'nature-1.jpg';
+        ImageArray[24] = 'Grotto-ontario.jpg';
+        ImageArray[25] = 'waterfall-at-hamilton-pool.jpg';
+        ImageArray[26] = '167609.jpg';
+        ImageArray[27] = 'Si-o-se-pol.jpg';
+        ImageArray[28] = 'thumb-1920-814136.jpg';
+        ImageArray[29] = 'Vintage-Tree-Nature.jpg';
+        ImageArray[30] = '390625.jpg';
+        ImageArray[31] = 'image-04.jpg';
+        ImageArray[32] = 'Taj-Mahal-Hd-.jpg';
+        ImageArray[33] = 'Rbtxcy6Rp.jpg';
+        ImageArray[34] = '189178.jpg';
+        ImageArray[35] = 'derril-roy-.jpg';
+        ImageArray[36] = 'landscape-sky-clouds-.jpg';
+        ImageArray[37] = 'Webp.net-resizeimage-6.jpg';
+        ImageArray[38] = 'e88267.jpg';
+        ImageArray[39] = 'lanterns.jpg';
+        ImageArray[40] = 'Oaxaca-Mexico.jpg';
+        ImageArray[41] = 'Banff2.jpg';
+        ImageArray[42] = 'yellowstone.jpg';
+        ImageArray[43] = 'Hiking-Stabbeskaret-.jpg';
+        ImageArray[44] = 'senja-island-fjord-autumn.jpg';
+        ImageArray[45] = 'il_fullxfull.1689872616_fjvc.jpg';
+        ImageArray[46] = 'leaves_stones_map.jpg';
+        ImageArray[47] = 'Amazing_Autumn_Japan_Mount_Fuji_i.jpg';
+        ImageArray[48] = 'amazing-nature-.jpg';
+        ImageArray[49] = 'DmyMoI.jpg';
+        ImageArray[50] = 'most_beautiful_sunsets.jpg';
+        ImageArray[51] = 'Alley.jpg';
+        ImageArray[52] = 'awesome-nature-wallpaper-2.jpg';
+        ImageArray[53] = 'land_scape.jpg';
+        ImageArray[54] = 'QztlVTN.jpg';
+        ImageArray[55] = '389450-svetik.jpg';
+        ImageArray[56] = 'selfjord_reflections.jpg';
+        ImageArray[57] = 'Top-Fall-Wallpaper.jpg';
+        ImageArray[58] = '355657.jpg';
+        ImageArray[59] = 'Grizzly-Bear-and-Cub.jpg';
+        ImageArray[60] = '5456.jpg';
+        ImageArray[61] = 'DarkHedges.jpg';
+        ImageArray[62] = 'forest-landscape.jpg';
+        ImageArray[63] = 'crater-lake-national.jpg';
+        ImageArray[64] = '718026.jpg';
+        ImageArray[65] = 'thumb-1920-666436.jpg';
+        ImageArray[66] = 'Rainbow-Falls.jpg';
+        ImageArray[67] = 'cliffs-in-china-beautiful-nature-4k.jpg';
+        ImageArray[68] = 'china-autumn-park-mountains-beautiful-nature.jpg';
+        ImageArray[69] = 'great_wall.jpg';
+        ImageArray[70] = 'volcano_house.jpg';
+        ImageArray[71] = 'Wyoming_Waters_Community_Finalist_NCHS.jpg';
+        ImageArray[72] = 'dfahn888gtx51.jpg';
+        ImageArray[73] = 'teton-range-snake.jpg';
+        ImageArray[74] = 'bison--or-buffalo--below-the-grand-teton-mountains.jpg';
+        ImageArray[75] = 'Grizzly-Bear-and-Cub.jpg';
+        ImageArray[76] = 'THueHseNUAgQnrmHa4bqSJ.jpg';
+        ImageArray[77] = 'image_print.jpg';
+        ImageArray[78] = '237111-nature-landscape.jpg';
+        ImageArray[79] = 'ai_art.jpg';
+        ImageArray[80] = 'o-circuit.jpg';
+        ImageArray[81] = '5c2a5a97.jpg';
+        ImageArray[82] = '837ab.jpg';
+        ImageArray[83] = 'Glacier_NP.jpg';
+        ImageArray[84] = 'Glacier-National-Park-2-Day-Itinerary-4.jpg';
+        ImageArray[85] = 'Glacier-Desktop-Wallpaper-by-Cole-Buckovich-6-scaled.jpg';
+        ImageArray[86] = 'K2.jpg';
+        ImageArray[87] = 'CHIHULY.jpg';
+        ImageArray[88] = 'abstract-colorful.jpg';
+        ImageArray[89] = '590070809.jpg';
+        ImageArray[90] = 'wonderful-and-beautiful.jpg';
+        ImageArray[91] = '294-2948735_red-amazing-nature.jpg';
+        ImageArray[92] = 'o53BOI.jpg';
+        ImageArray[93] = 'pexels-pixabay-220211.jpg';
+        ImageArray[94] = 'p9da3dc.jpg';
+        ImageArray[95] = '17183.jpg';
+        ImageArray[96] = 'GLCoIp8.jpg';
+        ImageArray[97] = '168261.jpg';
 
-		function getRandomImage() {
-			var num = Math.floor(Math.random() * ImageArray.length);
-			var img = ImageArray[num];
-			document.getElementById("randImage").innerHTML = ('<img src="' + 'Media/' + img + '" class="bg" />')
-			// check birthday
-			var date = new Date();
-			d = date.getUTCDate();
-			m = date.getUTCMonth() + 1;
-			var today = [date.getUTCMonth() + 1,date.getUTCDate()].join("-")
-			birth_day_dude = getKeyByValue(birth_day_dict, today)
-			if (birth_day_dude != undefined) {
-				$('.houdini').show();
-				document.getElementById('birthday').innerHTML = "Happy Birthday " + birth_day_dude + "!";
-			}
-		}
-		
-		</script>
-	<style type="text/css">
-		html {
-			overflow: hidden;
-		}
-	</style>
-	<link rel="stylesheet" href="styles/debug.css">
-	<style>
-		@import url("https://fonts.googleapis.com/css?family=BenchNine:300,400");
-*, *:after, *:before {
-  box-sizing: border-box;
-}
-
-
-html {
-	font-family: 'IBM Plex Mono', sans-serif;
-	}
-
-	.clock-container {
-	position: fixed;
-	right: 2%;
-	top: 5%;
-	transform: translate(0%, 0%);
-	width: 480px;
-	height: 480px;
-	border-radius: 50%;
-	overflow: hidden;
-	background: #111;
-	box-shadow: 0 0 25px 3px #000, 0 0 10px rgba(0, 0, 0, 0.8) inset;
-	}
-	.clock-container .spear {
-	position: absolute;
-	width: 220px;
-	height: 1px;
-	background: red;
-	left: 50%;
-	top: 50%;
-	transform: translateY(-50%);
-	z-index: 200;
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
-	}
-	.clock-container .spear:after {
-	content: '';
-	position: absolute;
-	border: 7px solid transparent;
-	border-right-color: red;
-	right: 0;
-	top: -7px;
-	}
-	.clock-container .spear:before {
-	content: '';
-	position: absolute;
-	border: 7px solid transparent;
-	border-left-color: red;
-	left: 2px;
-	top: -7px;
-	}
-	.clock-container .clock-analog {
-	width: 440px;
-	height: 440px;
-	border-radius: 50%;
-	margin: 20px;
-	background: #fff;
-	z-index: 5;
-	position: relative;
-	box-shadow: 0 0 25px 3px #000 inset;
-	}
-	.clock-container .clock-analog .second, .clock-container .clock-analog .minute, .clock-container .clock-analog .hour {
-	width: 20px;
-	height: 20px;
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	z-index: 100;
-	transition: 0.2s 0.2s ease-in;
-	transform: rotate(90deg);
-	}
-	.clock-container .clock-analog .second span, .clock-container .clock-analog .minute span, .clock-container .clock-analog .hour span {
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	line-height: 20px;
-	text-align: center;
-	transform-origin: 50%;
-	z-index: 5;
-	}
-	.clock-container .clock-analog .second span:after, .clock-container .clock-analog .minute span:after, .clock-container .clock-analog .hour span:after {
-	content: '';
-	width: 4px;
-	height: 1px;
-	background: #000;
-	position: absolute;
-	left: 130%;
-	top: -10%;
-	opacity: 0.3;
-	}
-	.clock-container .clock-analog .second span:nth-child(5n + 2):after, .clock-container .clock-analog .minute span:nth-child(5n + 2):after, .clock-container .clock-analog .hour span:nth-child(5n + 2):after {
-	width: 7px;
-	opacity: 1;
-	left: 110%;
-	}
-	.clock-container .clock-analog .hour {
-	z-index: 150;
-	font-size: 32px;
-	font-weight: 400;
-	}
-	.clock-container .clock-analog .hour span:after {
-	opacity: 1;
-	width: 4px;
-	height: 1px;
-	color: #666;
-	transform: translate(5px, 12px);
-	}
-	.clock-container .clock-analog .hour:after {
-	content: '';
-	background: #fff;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 250px;
-	height: 250px;
-	border-radius: 50%;
-	box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.6) inset;
-	}
-	.clock-container .clock-analog .minute {
-	color: #fff;
-	font-size: 16px;
-	}
-	.clock-container .clock-analog .minute span:after {
-	background: #fff;
-	transform: translate(10px, -7px) rotate(-9deg);
-	}
-	.clock-container .clock-analog .minute:after {
-	content: '';
-	background: #333;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 350px;
-	height: 350px;
-	border-radius: 50%;
-	box-shadow: 0 0 25px 2px #000 inset;
-	}
-	.clock-container .clock-analog .second {
-	font-size: 12px;
-	}
-	.clock-container .clock-analog .second span:after {
-	transform: translate(5px, -10px);
-	}
-	.clock-container .clock-analog .dail {
-	width: 20px;
-	height: 20px;
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	z-index: 100;
-	}
-	.clock-container .clock-analog .dail span {
-	width: 20px;
-	height: 20px;
-	line-height: 20px;
-	transform-origin: 50%;
-	text-indent: 1000px;
-	overflow: hidden;
-	position: absolute;
-	}
-	.clock-container .clock-analog .dail span:after {
-	content: '';
-	position: absolute;
-	width: 4px;
-	height: 4px;
-	border-radius: 50%;
-	background-color: #7d7e7d;
-	*zoom: 1;
-	filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF7D7E7D', endColorstr='#FF0E0E0E');
-	background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdkN2U3ZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBlMGUwZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-	background-size: 100%;
-	background-image: linear-gradient(to right, #7d7e7d 0%, #0e0e0e 100%);
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	}
-	.clock-container .clock-analog .dail span:nth-child(5n + 1):after {
-	width: 8px;
-	}
-	.clock-container .clock-digital {
-	position: absolute;
-	z-index: 200;
-	height: 444px;
-	width: 224px;
-	background: #090909;
-	left: 18px;
-	top: 18px;
-	border-radius: 220px 0 0 220px;
-	box-shadow: 5px 0 15px #000;
-	}
-	.clock-container .clock-digital:after {
-	content: '';
-	position: absolute;
-	border: 15px solid #8e0a0a;
-	border-right: none;
-	height: 400px;
-	width: 200px;
-	border-radius: 220px 0 0 220px;
-	left: 25px;
-	top: 25px;
-	}
-	.clock-container .clock-digital .time {
-	background: #111;
-	position: absolute;
-	right: 20px;
-	top: 50%;
-	transform: translateY(-50%);
-	color: #fff;
-	border-radius: 50px;
-	font-size: 24px;
-	padding: 2px 20px;
-	box-shadow: 0 0 15px #000 inset;
-	}
-	.clock-container .clock-digital .day {
-	background: #111;
-	position: absolute;
-	right: 20px;
-	bottom: 125px;
-	color: #fff;
-	border-radius: 20px;
-	box-shadow: 0 0 15px #000 inset;
-	padding: 2px 20px;
-	font-size: 16px;
-	}
-	.clock-container .clock-digital .date {
-	background: #111;
-	position: absolute;
-	right: 20px;
-	bottom: 100px;
-	color: #fff;
-	border-radius: 20px;
-	font-size: 16px;
-	box-shadow: 0 0 10px #000 inset;
-	padding: 2px 20px;
-	}
+        var birth_day_dict = {
+            'Mehrad': '2-25',
+            'Ziyue': '3-10',
+            'Allison': '6-4',
+            'Geemi': '7-25',
+            'Mayk': '8-2',
+            'Jorge': '8-9',
+            'Kat & Sam': '8-22',
+            'Quinny': '9-16',
+            'Andrew': '10-15',
+            'Heta': '11-24',
+            'Perfect Human': '12-1'
 
 
-		.Background {
-			Position:fixed; 
-			object-fit:scale-down;
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position:-400px -400px;
-			
-		}
 
-		.img.bg {
-			max-width: 1080px;
-			height: 60%;
-			position: fixed;
-			top: 0;
-			left: 0;
-			object-fit: contain;
-			z-index: -1;
-		}
+        };
 
-		.responsive {
-			max-width: 100%;
-			height: auto;
-		}
+        function getKeyByValue(object, value) {
+            return Object.keys(object).find(key => object[key] === value);
+        }
 
-		.center {
-			position: absolute;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			transform: translate(480px, -1000px);
-			margin-left: auto;
-			margin-right: auto;
-			z-index: 1;
-		}
-
-		.imgstyle {
-			display: flex;
-			position: fixed;
-			top: 50%;
-			left: 50%;
-			width: 100%;
-			max-width: 700px;
-			z-index: 1;
-			transform: translate(-50%, -190%);
-		}
-
-		.gauge {
-			position: fixed;
-			transform: translate(1365px, 105px);
-			z-index: 1;
-			
-			
-		}
-		
-		tr:nth-child(even) {
-			background-color: #e6f2ff;
-		}
-
-		.slideshow-container {
-			max-width: 2000px;
-		}
-
-		.fade {
-			-webkit-animation-name: fade;
-			-webkit-animation-duration: 1.5s;
-			animation-name: fade;
-			animation-duration: 1.5s;
-		}
-		
-
-		.mySlides {
-			display: none;
-			
-		}
-		#gauge table {
-			border-spacing: 3000px;
-		}
-
-		
-		
-
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
-}
-	</style>
+        function getRandomImage() {
+            var num = Math.floor(Math.random() * ImageArray.length);
+            var img = ImageArray[num];
+            document.getElementById("randImage").innerHTML = ('<img src="' + 'Media/' + img + '" class="bg" />')
+                // check birthday
+            var date = new Date();
+            // d = date.getUTCDate()-1;
+            // m = date.getUTCMonth();
+            var today = [date.getUTCMonth() + 1, date.getDate()].join("-")
+                //console.log(today)
+            birth_day_dude = getKeyByValue(birth_day_dict, today)
+            if (birth_day_dude != undefined) {
+                $('.houdini').show();
+                document.getElementById('birthday').innerHTML = "Happy Birthday " + birth_day_dude + "!";
+            }
+        }
+    </script>
+    <style type="text/css">
+        html {
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="styles/debug.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=BenchNine:300,400");
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-family: 'IBM Plex Mono', sans-serif;
+        }
+        
+        .clock-container {
+            position: fixed;
+            right: 2%;
+            top: 5%;
+            transform: translate(0%, 0%);
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #111;
+            box-shadow: 0 0 25px 3px #000, 0 0 10px rgba(0, 0, 0, 0.8) inset;
+        }
+        
+        .clock-container .spear {
+            position: absolute;
+            width: 220px;
+            height: 1px;
+            background: red;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 200;
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+        }
+        
+        .clock-container .spear:after {
+            content: '';
+            position: absolute;
+            border: 7px solid transparent;
+            border-right-color: red;
+            right: 0;
+            top: -7px;
+        }
+        
+        .clock-container .spear:before {
+            content: '';
+            position: absolute;
+            border: 7px solid transparent;
+            border-left-color: red;
+            left: 2px;
+            top: -7px;
+        }
+        
+        .clock-container .clock-analog {
+            width: 440px;
+            height: 440px;
+            border-radius: 50%;
+            margin: 20px;
+            background: #fff;
+            z-index: 5;
+            position: relative;
+            box-shadow: 0 0 25px 3px #000 inset;
+        }
+        
+        .clock-container .clock-analog .second,
+        .clock-container .clock-analog .minute,
+        .clock-container .clock-analog .hour {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 100;
+            transition: 0.2s 0.2s ease-in;
+            transform: rotate(90deg);
+        }
+        
+        .clock-container .clock-analog .second span,
+        .clock-container .clock-analog .minute span,
+        .clock-container .clock-analog .hour span {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            transform-origin: 50%;
+            z-index: 5;
+        }
+        
+        .clock-container .clock-analog .second span:after,
+        .clock-container .clock-analog .minute span:after,
+        .clock-container .clock-analog .hour span:after {
+            content: '';
+            width: 4px;
+            height: 1px;
+            background: #000;
+            position: absolute;
+            left: 130%;
+            top: -10%;
+            opacity: 0.3;
+        }
+        
+        .clock-container .clock-analog .second span:nth-child(5n+2):after,
+        .clock-container .clock-analog .minute span:nth-child(5n+2):after,
+        .clock-container .clock-analog .hour span:nth-child(5n+2):after {
+            width: 7px;
+            opacity: 1;
+            left: 110%;
+        }
+        
+        .clock-container .clock-analog .hour {
+            z-index: 150;
+            font-size: 32px;
+            font-weight: 400;
+        }
+        
+        .clock-container .clock-analog .hour span:after {
+            opacity: 1;
+            width: 4px;
+            height: 1px;
+            color: #666;
+            transform: translate(5px, 12px);
+        }
+        
+        .clock-container .clock-analog .hour:after {
+            content: '';
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.6) inset;
+        }
+        
+        .clock-container .clock-analog .minute {
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .clock-container .clock-analog .minute span:after {
+            background: #fff;
+            transform: translate(10px, -7px) rotate(-9deg);
+        }
+        
+        .clock-container .clock-analog .minute:after {
+            content: '';
+            background: #333;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            box-shadow: 0 0 25px 2px #000 inset;
+        }
+        
+        .clock-container .clock-analog .second {
+            font-size: 12px;
+        }
+        
+        .clock-container .clock-analog .second span:after {
+            transform: translate(5px, -10px);
+        }
+        
+        .clock-container .clock-analog .dail {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 100;
+        }
+        
+        .clock-container .clock-analog .dail span {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            transform-origin: 50%;
+            text-indent: 1000px;
+            overflow: hidden;
+            position: absolute;
+        }
+        
+        .clock-container .clock-analog .dail span:after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #7d7e7d;
+            *zoom: 1;
+            filter: progid: DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FF7D7E7D', endColorstr='#FF0E0E0E');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdkN2U3ZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBlMGUwZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+            background-size: 100%;
+            background-image: linear-gradient(to right, #7d7e7d 0%, #0e0e0e 100%);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .clock-container .clock-analog .dail span:nth-child(5n+1):after {
+            width: 8px;
+        }
+        
+        .clock-container .clock-digital {
+            position: absolute;
+            z-index: 200;
+            height: 444px;
+            width: 224px;
+            background: #090909;
+            left: 18px;
+            top: 18px;
+            border-radius: 220px 0 0 220px;
+            box-shadow: 5px 0 15px #000;
+        }
+        
+        .clock-container .clock-digital:after {
+            content: '';
+            position: absolute;
+            border: 15px solid #8e0a0a;
+            border-right: none;
+            height: 400px;
+            width: 200px;
+            border-radius: 220px 0 0 220px;
+            left: 25px;
+            top: 25px;
+        }
+        
+        .clock-container .clock-digital .time {
+            background: #111;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translate(15%, -30%);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 35px;
+            padding: 2px 20px;
+            box-shadow: 0 0 15px #000 inset;
+        }
+        
+        .clock-container .clock-digital .day {
+            background: #111;
+            position: absolute;
+            right: 20px;
+            bottom: 125px;
+            color: #fff;
+            border-radius: 20px;
+            transform: translate(15%, -30%);
+            box-shadow: 0 0 15px #000 inset;
+            padding: 2px 20px;
+            font-size: 28px;
+        }
+        
+        .clock-container .clock-digital .date {
+            background: #111;
+            position: absolute;
+            right: 20px;
+            bottom: 100px;
+            color: #fff;
+            border-radius: 20px;
+            transform: translate(15%, -20%);
+            font-size: 20px;
+            box-shadow: 0 0 10px #000 inset;
+            padding: 2px 20px;
+        }
+        
+        .Background {
+            Position: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: calc(50% - 50px) 50%;
+            background-attachment: fixed;
+        }
+        
+        .img.bg {
+            max-width: 1080px;
+            height: 60%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            object-fit: contain;
+            z-index: -1;
+        }
+        
+        .responsive {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .center {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translate(480px, -1000px);
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 1;
+        }
+        
+        .imgstyle {
+            display: flex;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            max-width: 700px;
+            z-index: 1;
+            transform: translate(-50%, -190%);
+        }
+        
+        .gauge {
+            position: fixed;
+            transform: translate(1365px, 105px);
+            z-index: 1;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #e6f2ff;
+        }
+        
+        .slideshow-container {
+            max-width: 2000px;
+        }
+        
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        .mySlides {
+            display: none;
+        }
+        
+        #gauge table {
+            border-spacing: 3000px;
+        }
+        
+        @keyframes textclip {
+            to {
+                background-position: 200% center;
+            }
+        }
+    </style>
 </head>
 
 
@@ -446,55 +528,53 @@ html {
 
 
 <body onload="getRandomImage()">
-	
-	<div class="Background"
-	     id="randImage"></div>
 
-	<div class="reveal" style="cursor: none;"> 
-	
-	<div id="chart_div_cpu" style="width: 450px; height: 120px; position: fixed;
+    <div class="Background" id="randImage"></div>
+
+    <div class="reveal" style="cursor: none;">
+
+        <div id="chart_div_cpu" style="width: 450px; height: 120px; position: fixed;
 	right: 1.5%;
 	top: 7%;
 	transform: translate(0%, 0%);" class="gauge" alt=""> </div>
 
-	<a class="weatherwidget-io" alt="" href="https://forecast7.com/en/43d16n77d61/rochester/" data-label_1="ROCHESTER NY" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-theme="weather_one" data-days="5"
-		style="width: 350px; height: 120px;position: fixed; transform: translate(125px, 100px) ; opacity: 0.9 ;z-index: 1">ROCHESTER NY WEATHER</a>
-	<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-	<div id="container" style="width:20%; height:20%">
-		<div class="clock-container">
-			<div class="clock-digital">
-				<div class="date"></div>
-				<div class="time"></div>
-				<div class="day"> </div>
-			</div>
-			<div class="clock-analog">
-				<div class="spear"></div>
-				<div class="hour"></div>
-				<div class="minute"></div>
-				<div class="second"></div>
-				<div class="dail"></div>
-			</div>
-		</div>
-	</div>
+        <a class="weatherwidget-io" alt="" href="https://forecast7.com/en/43d16n77d61/rochester/?unit=us" data-label_1="ROCHESTER NY" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-theme="weather_one" data-days="5" style="width: 350px; height: 120px;position: fixed; transform: translate(125px, 100px) ; opacity: 0.9 ;z-index: 1">ROCHESTER NY WEATHER</a>
+        <!-- <div id="MyClockDisplay" class="clock" onload="showTime()"></div> -->
+        <div id="container" style="width:10%; height:10%">
+            <div class="clock-container">
+                <div class="clock-digital">
+                    <div class="date"></div>
+                    <div class="time"></div>
+                    <div class="day"> </div>
+                </div>
+                <div class="clock-analog">
+                    <div class="spear"></div>
+                    <div class="hour"></div>
+                    <div class="minute"></div>
+                    <div class="second"></div>
+                    <div class="dail"></div>
+                </div>
+            </div>
+        </div>
 
-	<!-- <div class="Background">
+        <!-- <div class="Background">
 		<div class="Background" id="randImage"></div>
 	</div> -->
-	<div id="headerContent">
-		<div class="img-container">
-			<div class="imgstyle">
-				<figrue>
-					<img border="0" src="Media\front-text.png" />
-				</figure>
-			</div>
-		</div>
-	</div>
+        <div id="headerContent">
+            <div class="img-container">
+                <div class="imgstyle">
+                    <figrue>
+                        <img border="0" src="Media\front-text.png" />
+                        </figure>
+                </div>
+            </div>
+        </div>
 
-<!-- <style type='text/css'>
+        <!-- <style type='text/css'>
 	
 </style> -->
 
-	<div id="chart_div_gpu"
+        <!-- <div id="chart_div_gpu"
 		style="width: 450px; height: 420px; position: fixed;
 			left: 4%;
 			top: 78%;
@@ -502,100 +582,100 @@ html {
 			"
 		class="gauge"
 		alt=""> 
-	</div>
-	<section class="hero">
-		<div class="slideshow-container">
-			<div class="mySlides">
-				<div class="table-responsive">
-					<font size="2.9px" >
-						<table class="table center" id="HPC_monitoring_table" border="2" style="opacity: 0.88; border-radius: 8px; font-weight: 500; font-family:IBM Plex Mono; top: 40%; left: 50%; transform: translate(-50%, 0%);">
-							<tr>
-								<th> </th>
-								<th style="text-align:center">Job ID </th>
-								<th style="text-align:center">User</th>
-								<th style="text-align:center">Job Name</th>
-								<th style="text-align:center;">Run Time</th>
-								<th style="text-align:center;">Time Limit</th>
-								<th style="text-align:center;">Nodes</th>
-								<th style="text-align:center;">#Nodes</th>
-								<th style="text-align:center">#CPUs</th>
-								<th style="text-align:center">#GPUs</th>
-								<th style="text-align:center">Memory</th>
-							</tr>
-						</table>
-					</font>
-				</div>
-			</div>
-		</div>
-		<!-- style=" transform: translate(320px, -1000px) -->
-		<div class="mySlides" >
-			<div class="container" style="top: 50%; left: 50%; transform: translate(-45%, 25%)">
-				<img src="Media\chart_bar_low.png" width="80%"  alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
-			</div>
-		</div>
-		<div class="mySlides" style="top: 50%; left: 50%; transform: translate(-45%, 25%)">
-			<div class="container">
-				<img src="Media\chart_bar_high.png" width="80%"  alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
-			</div>
-		</div>
-		<div class="mySlides" >
-			<div class="container" style="top: 50%; left: 50%; transform: translate(-45%, 25%)">
-				<img src="Media\chart_pi.png" width="80%"  alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
-			</div>
-		</div>
-		</div>
-	</section>
-</div>
-<div class="houdini" style="width: 300px; height: 200px;;position:fixed; top: 75%; left: 81%; border-radius:20px;
+	</div> -->
+        <section class="hero">
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <div class="table-responsive">
+                        <font size="3px">
+                            <table class="table center" id="HPC_monitoring_table" border="2" style="opacity: 0.88; width:fit-content; border-radius: 8px; font-weight: 500; font-family:IBM Plex Mono; top: 40%; left: 50%; transform: translate(-50%, 0%);">
+                                <tr>
+                                    <th> </th>
+                                    <th style="text-align:center">Job ID </th>
+                                    <th style="text-align:center">User</th>
+                                    <th style="text-align:center">Job Name</th>
+                                    <th style="text-align:center;">Run Time</th>
+                                    <th style="text-align:center;">Time Limit</th>
+                                    <th style="text-align:center;">Nodes</th>
+                                    <th style="text-align:center;">#Nodes</th>
+                                    <th style="text-align:center">#CPUs</th>
+                                    <th style="text-align:center">#GPUs</th>
+                                    <th style="text-align:center">Memory</th>
+                                </tr>
+                            </table>
+                        </font>
+                    </div>
+                </div>
+            </div>
+            <!-- style=" transform: translate(320px, -1000px) -->
+            <div class="mySlides">
+                <div class="container" style="top: 50%; left: 50%; transform: translate(-50%, 20%)">
+                    <img src="Media\chart_bar_low.png" width="80%" alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
+                </div>
+            </div>
+            <div class="mySlides">
+                <div class="container" style="top: 50%; left: 50%; transform: translate(-50%, 20%)">
+                    <img src="Media\chart_bar_high.png" width="80%" alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
+                </div>
+            </div>
+            <div class="mySlides">
+                <div class="container" style="top: 50%; left: 50%; transform: translate(-55%, 20%)">
+                    <img src="Media\chart_pi.png" width="80%" alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
+                </div>
+            </div>
+            <div class="mySlides">
+
+            </div>
+    </div>
+    </section>
+    </div>
+    <div class="houdini" style="width: 300px; height: 200px;;position:fixed; top: 75%; left: 81%; border-radius:20px;
 		background-color: #fff492; font-family:IBM Plex Mono;
 		border: 5px solid green;
 		padding: 50px;
 		margin: 20px;
-		display: none;"> 
+		display: none;">
 
-	<p class="animate-charcter" id="birthday"
-	style="text-align: center; transform: translate(0, -45%)">	
-	</p>
-		<div style="transform:  translateY(20px)">
-		<div class="party"
-		     title=":party:">
-			<a title=":party:"
-			   href="https://goabstract.com">
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-			</a>
-		</div>
-	
-		<div id="glasses-wrap">
-			<div id="glasses"></div>
-		</div>
-	
-		<div class="hands">
-			<div class="hand left">✋</div>
-			<div class="hand right">✋</div>
-		</div>
-	
-		<div class="notes">
-			<div>♫</div>
-			<div>♪</div>
-			<div>♫</div>
-			<div>♪</div>
-			<div>♫</div>
-			<div>♪</div>
-			<div>♫</div>
-			<div>♪</div>
-			<div>♫</div>
-			<div>♪</div>
-		</div>
-		</div>
-</div>
+        <p class="animate-charcter" id="birthday" style="text-align: center; transform: translate(0, -45%)">
+        </p>
+        <div style="transform:  translateY(20px)">
+            <div class="party" title=":party:">
+                <a title=":party:" href="https://goabstract.com">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </a>
+            </div>
+
+            <div id="glasses-wrap">
+                <div id="glasses"></div>
+            </div>
+
+            <div class="hands">
+                <div class="hand left">✋</div>
+                <div class="hand right">✋</div>
+            </div>
+
+            <div class="notes">
+                <div>♫</div>
+                <div>♪</div>
+                <div>♫</div>
+                <div>♪</div>
+                <div>♫</div>
+                <div>♪</div>
+                <div>♫</div>
+                <div>♪</div>
+                <div>♫</div>
+                <div>♪</div>
+            </div>
+        </div>
+    </div>
 
 
-<!-- <div id="birthday"></div>
+    <!-- <div id="birthday"></div>
 
 <div id="date_dependent"></div> -->
 
@@ -603,119 +683,130 @@ html {
 
 s
 <script>
-	var slideIndex = 0;
-	carousel();
+    var slideIndex = 0;
+    carousel();
 
-	function carousel() {
-		var i;
-		var x = document.getElementsByClassName("mySlides");
-		for (i = 0; i < x.length; i++) {
-			x[i].style.display = "none";
-		}
-		slideIndex++;
-		if (slideIndex > x.length) {
-			slideIndex = 1
-		}
-		x[slideIndex - 1].style.display = "block";
-		setTimeout(carousel, 10000); // Change image every 10 seconds
-	}
-	$(document).ready(function() {
-		$.getJSON("Json/j1.json", function(data) {
-			var HPC_monitoring = '';
-			var count = 1;
-			$.each(data, function(key, value) {
-				HPC_monitoring += '<tr >' + '<th >' + count + '</th>';
-				HPC_monitoring += '<td style="text-align:center">' + value.Job_ID + '</td>';
-				HPC_monitoring += '<td style="text-align:center">' + value.User + '</td>';
-				HPC_monitoring += '<td style="text-align:center">' + value.Job_Name + '</td>';
-				HPC_monitoring += '<td style="text-align:center"> ' + value.Run_time + '</td>';
-				HPC_monitoring += '<td style="text-align:center">' + value.Time_limit + '</td>';
-				HPC_monitoring += '<td style="text-align:center">' + value.Node_Name + '</td>';
-				HPC_monitoring += '<td style="text-align:center">' + value.N_Nodes + '</td>';
-				HPC_monitoring += '<td style="text-align:center">' + value.N_CPU + '</td>';
-				HPC_monitoring += '<td style="text-align:center">' + value.GRES + '</td>';
-				HPC_monitoring += '<td style="text-align:center">' + value.MIN_MEMORY + '</td>';
-				HPC_monitoring += '</tr>';
-				count++;
-			});
-			$("#HPC_monitoring_table tbody").append(HPC_monitoring);
-		});
-	});
-	function drawChart() {
-		var sinfo;
-		$.getJSON("Json/j_monthly_avg.json", function(dat) {
-			$.getJSON("Json/total_current_CPU.json", function(dat_current) {
-				var current_CPU = dat_current.Total_current_CPU;
-				var monthly_CPU = dat.avg_CPUhour;
-				var data = google.visualization.arrayToDataTable([
-					['Label', 'Value'],
-					['Current CPU', Number(current_CPU)],
-					['Monthly CPU', Number(monthly_CPU)],
-				]);
-				var options = {
-					width: 400,
-					height: 300,
-					redFrom: 90,
-					redTo: 100,
-					yellowFrom: 75,
-					yellowTo: 90,
-					minorTicks: 10
-				};
-				var chart = new google.visualization.Gauge(document.getElementById('chart_div_cpu'));
-				chart.draw(data, options);
-			});
-		});
-	}
-	function drawChart_gpu() {
-			var sinfo;
-			$.getJSON("Json/j_monthly_avg.json", function (dat) {
-				$.getJSON("Json/total_current_CPU.json", function (dat_current) {
-					var current_CPU = dat_current.Total_current_CPU;
-					var monthly_CPU = dat.avg_CPUhour;
-					var data = google.visualization.arrayToDataTable([
-						['Label', 'Value'],
-						['Current GPU', Number(current_CPU)],
-						['Monthly GPU', Number(monthly_CPU)],
-					]);
-					var options = {
-						width: 300,
-						height: 300,
-						redFrom: 90,
-						redTo: 100,
-						yellowFrom: 75,
-						yellowTo: 90,
-						minorTicks: 10,
-	
-					};
-					var chart = new google.visualization.Gauge(document.getElementById('chart_div_gpu'));
-					chart.draw(data, options);
-				});
-			});
-		}
-google.charts.load('current', {
-		'packages': ['gauge']
-	});
-	google.charts.setOnLoadCallback(drawChart);
-google.charts.load('current', {
-		'packages': ['gauge']
-	});
-	google.charts.setOnLoadCallback(drawChart_gpu);
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {
+            slideIndex = 1
+        }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 10000); // Change image every 10 seconds
+    }
+    $(document).ready(function() {
+        $.getJSON("Json/j1.json", function(data) {
+            var HPC_monitoring = '';
+            var count = 1;
+            $.each(data, function(key, value) {
+                HPC_monitoring += '<tr >' + '<th >' + count + '</th>';
+                HPC_monitoring += '<td style="text-align:center">' + value.Job_ID + '</td>';
+                HPC_monitoring += '<td style="text-align:center">' + value.User + '</td>';
+                HPC_monitoring += '<td style="text-align:center">' + value.Job_Name + '</td>';
+                HPC_monitoring += '<td style="text-align:center"> ' + value.Run_time + '</td>';
+                HPC_monitoring += '<td style="text-align:center">' + value.Time_limit + '</td>';
+                HPC_monitoring += '<td style="text-align:center">' + value.Node_Name + '</td>';
+                HPC_monitoring += '<td style="text-align:center">' + value.N_Nodes + '</td>';
+                HPC_monitoring += '<td style="text-align:center">' + value.N_CPU + '</td>';
+                HPC_monitoring += '<td style="text-align:center">' + value.GRES + '</td>';
+                HPC_monitoring += '<td style="text-align:center">' + value.MIN_MEMORY + '</td>';
+                HPC_monitoring += '</tr>';
+                count++;
+            });
+            $("#HPC_monitoring_table tbody").append(HPC_monitoring);
+        });
+    });
+
+    function drawChart() {
+        var sinfo;
+        $.getJSON("Json/j_monthly_avg.json", function(dat) {
+            $.getJSON("Json/total_current_CPU.json", function(dat_current) {
+                var current_CPU = dat_current.Total_current_CPU;
+                var monthly_CPU = dat.avg_CPUhour;
+                var data = google.visualization.arrayToDataTable([
+                    ['Label', 'Value'],
+                    ['Current CPU', Number(current_CPU)],
+                    ['Monthly CPU', Number(monthly_CPU)],
+                ]);
+                var options = {
+                    width: 400,
+                    height: 300,
+                    redFrom: 90,
+                    redTo: 100,
+                    yellowFrom: 75,
+                    yellowTo: 90,
+                    minorTicks: 10
+                };
+                var chart = new google.visualization.Gauge(document.getElementById('chart_div_cpu'));
+                chart.draw(data, options);
+            });
+        });
+    }
+
+    function drawChart_gpu() {
+        var sinfo;
+        $.getJSON("Json/j_monthly_avg.json", function(dat) {
+            $.getJSON("Json/total_current_CPU.json", function(dat_current) {
+                var current_CPU = dat_current.Total_current_CPU;
+                var monthly_CPU = dat.avg_CPUhour;
+                var data = google.visualization.arrayToDataTable([
+                    ['Label', 'Value'],
+                    ['Current GPU', Number(current_CPU)],
+                    ['Monthly GPU', Number(monthly_CPU)],
+                ]);
+                var options = {
+                    width: 300,
+                    height: 300,
+                    redFrom: 90,
+                    redTo: 100,
+                    yellowFrom: 75,
+                    yellowTo: 90,
+                    minorTicks: 10,
+
+                };
+                var chart = new google.visualization.Gauge(document.getElementById('chart_div_gpu'));
+                chart.draw(data, options);
+            });
+        });
+    }
+    google.charts.load('current', {
+        'packages': ['gauge']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {
+        'packages': ['gauge']
+    });
+    google.charts.setOnLoadCallback(drawChart_gpu);
 </script>
 <script>
-	! function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (!d.getElementById(id)) {
-			js = d.createElement(s);
-			js.id = id;
-			js.src = 'https://weatherwidget.io/js/widget.min.js';
-			fjs.parentNode.insertBefore(js, fjs);
-		}
-	}(document, 'script', 'weatherwidget-io-js');
+    ! function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://weatherwidget.io/js/widget.min.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'weatherwidget-io-js');
 </script>
 
 
 
+<!-- <a class="weatherwidget-io"
+   href="https://forecast7.com/en/40d71n74d01/new-york/?unit=us"
+   data-label_1="NEW YORK"
+   data-label_2="WEATHER"
+   data-theme="original">NEW YORK WEATHER</a>
 <script>
+	!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+</script> -->
+
+<!-- <script>
 	function showTime(){
     var date = new Date();
     var h = date.getHours(); // 0 - 23
@@ -746,55 +837,58 @@ google.charts.load('current', {
 }
 
 showTime();
-</script>
+</script> -->
 <script>
-	(function () {
+    (function() {
 
-			var months = ["January", "February", "March", "April", "May", "June",
-				"July", "August", "September", "October", "November", "December"
-			],
-				days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var months = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ],
+            days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-			function getTime() {
+        function getTime() {
 
-				var date = new Date(),
-					second = date.getSeconds(),
-					minute = date.getMinutes(),
-					hour = date.getHours(),
-					time = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
-					day = date.getDay(),
-					month = date.getMonth(),
-					date = date.getDate() + ' . ' + months[month],
+            var date = new Date(),
+                second = date.getSeconds(),
+                minute = date.getMinutes(),
+                hour = date.getHours(),
+                time = date.toLocaleString('en-US', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true
+                }),
+                day = date.getDay(),
+                month = date.getMonth(),
+                date = date.getDate() + ' . ' + months[month],
 
-					ds = second * -6,
-					dm = minute * -6,
-					dh = hour * -30;
+                ds = second * -6,
+                dm = minute * -6,
+                dh = hour * -30;
 
-				$('.second').css('transform', 'rotate(' + ds + 'deg)');
-				$('.minute').css('transform', 'rotate(' + dm + 'deg)');
-				$('.hour').css('transform', 'rotate(' + dh + 'deg)');
+            $('.second').css('transform', 'rotate(' + ds + 'deg)');
+            $('.minute').css('transform', 'rotate(' + dm + 'deg)');
+            $('.hour').css('transform', 'rotate(' + dh + 'deg)');
 
-				$('.time').text(time);
-				$('.day').text(days[day]);
-				$('.date').text(date)
-			}
+            $('.time').text(time);
+            $('.day').text(days[day]);
+            $('.date').text(date)
+        }
 
-			function dailer(selector, size) {
-				for (var s = 0; s < 60; s++) {
-					$(selector).append('<span style="transform: rotate(' + 6 * s + 'deg) translateX(' + size + 'px)">' + s + '</span>')
-				}
-			}
+        function dailer(selector, size) {
+            for (var s = 0; s < 60; s++) {
+                $(selector).append('<span style="transform: rotate(' + 6 * s + 'deg) translateX(' + size + 'px)">' + s + '</span>')
+            }
+        }
 
-			dailer('.second', 195);
-			dailer('.minute', 145);
-			dailer('.dail', 230);
+        dailer('.second', 195);
+        dailer('.minute', 145);
+        dailer('.dail', 230);
 
-			for (var s = 1; s < 13; s++) {
-				$('.hour').append('<span style="transform: rotate(' + 30 * s + 'deg) translateX(100px)">' + s + '</span>')
-			}
-			setInterval(getTime, 1000);
-			getTime();
+        for (var s = 1; s < 13; s++) {
+            $('.hour').append('<span style="transform: rotate(' + 30 * s + 'deg) translateX(100px)">' + s + '</span>')
+        }
+        setInterval(getTime, 1000);
+        getTime();
 
-		}());
-
+    }());
 </script>

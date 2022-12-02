@@ -4,9 +4,9 @@ import numpy
 import json 
 import math
 from collections import defaultdict       
-csvfile = open('/home/mgholiza/HPC_monitoring/CSVs/HPC_data.csv', 'r')
+csvfile = open('../CSVs/HPC_data.csv', 'r')
 next(csvfile)
-jsonfile = open('/home/mgholiza/HPC_monitoring/Json/j1.json', 'w')
+jsonfile = open('../Json/j1.json', 'w')
 fieldnames = ("Job_ID","User","Job_Name","Run_time","Time_limit","N_Nodes","N_CPU","Node_Name","GRES","MIN_MEMORY")
 reader = csv.DictReader(csvfile, fieldnames)		
 output = []
@@ -26,20 +26,43 @@ for each in reader:
 		each['User'] = "Maghesree"
 	if each['User'] == "rbarret8":
 		each['User'] = "Rainier"
-	if each['User'] == "jagwara"	:
-		each['User'] = "Jane"
+	if each['User'] == "kashraf":
+		each['User'] = "Kareem"
 	if each['User'] == "zyang43"	:
 		each['User'] = "Ziyue"
 	if each['User'] == "hgandhi"	:
 		each['User'] = "Heta"
 	if each['User'] == "gwellawa":
 		each['User'] = "Geemi"		
-	if each['User'] == "sjakymiw":
-		each['User'] = "Sebastian"		
+	if each['User'] == "smichtav":
+		each['User'] = "Shane"		
 	if each['User'] == "oakif":
 			each['User'] = "Oion"
-
-	
+	if each ['User'] == "aseshad4":
+		each ['User'] = "Aditi"
+	if each ['User'] == "ngokul":
+		each ['User'] = "Navneeth"
+	if each['User'] == "swrig30":
+		each['User'] = "Sam"
+	if each['User'] == "cmilas":
+		each['User'] = "Kat"
+	if each['User'] == "wzhu15":
+		each['User'] = "Wei"
+	if each['User'] == "aroll":
+		each['User'] = "Allison"
+	if each['User'] == "qcampbe2":
+		each['User'] = "Quinny"
+	if each['User'] == "mcaldasr":
+		each['User'] = "Mayk"
+	if each['User'] == "jmedina9":
+		each['User'] = "Jorge"
+	if each['GRES']== "gpu":
+		each['GRES']= 1
+	elif each['GRES']== "(null)":
+		each['GRES']= 0
+	else:
+		each['GRES'] = each['GRES'][-1]
+	each['MIN_MEMORY']= each['MIN_MEMORY'] + 'B'
 	for field in fieldnames:
 		row[field] = each[field]
 	output.append(row)
@@ -52,7 +75,7 @@ current_CPU_usage=total_current_CPU/CPU*100
 json.dump(output, jsonfile)    
 jsonfile.close()
 csvfile.close()
-jsonfile = open('/home/mgholiza/HPC_monitoring/Json/total_current_CPU.json', 'w')
+jsonfile = open('../Json/total_current_CPU.json', 'w')
 Current_CPU={"Total_current_CPU": math.ceil(current_CPU_usage)}
 json.dump(Current_CPU, jsonfile)
 jsonfile.close()
