@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="refresh" content="45" />
+    <meta http-equiv="refresh" content="48" />
     <link rel="stylesheet" href="normalize.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,6 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
     <script type="text/javascript">
         ImageArray = new Array();
         ImageArray[0] = 'boat.jpg';
@@ -116,6 +117,40 @@
         ImageArray[96] = 'GLCoIp8.jpg';
         ImageArray[97] = '168261.jpg';
 
+        mem_pics = new Array();
+        mem_pics[0] = 'IMG_9249.jpg';
+        mem_pics[1] = 'IMG_9243.jpg';
+        mem_pics[2] = 'IMG_3172.jpg';
+        mem_pics[3] = 'IMG_2926.jpg';
+        mem_pics[4] = 'IMG_5806.jpg';
+        mem_pics[5] = 'PXL_20221003_204509024.jpg';
+        mem_pics[6] = 'PXL_202210.jpg';
+        mem_pics[7] = 'group.jpg';
+        mem_pics[8] = 'group_2.jpg';
+        mem_pics[9] = '20220829_162345.jpg';
+        mem_pics[10] = '20220823_135332.jpg';
+        mem_pics[11] = 'IMG-20220725-WA0009.jpg';
+        mem_pics[12] = 'IMG-2022009.jpg';
+        mem_pics[13] = 'IMG_2fsf926.jpg';
+        mem_pics[14] = '20220718_133740(0)-01.jpeg';
+        mem_pics[15] = 'IMG_2f6.jpg';
+        mem_pics[16] = 'Filedsdsg234.jpg';
+        mem_pics[17] = 'FIMG_2f5436.jpg';
+        mem_pics[18] = '20220213_110008.jpg';
+        mem_pics[19] = 'PXL_20211029_165541121.jpg';
+        mem_pics[20] = 'PXL_20211029_165319837.jpg';
+        mem_pics[21] = 'PXL_20210930_133836138.jpg';
+        mem_pics[22] = 'PXL_203836138.jpg';
+        mem_pics[23] = 'PXL_20383326138.jpg';
+        mem_pics[24] = 'PXL_20210515_185106992.jpg'
+        mem_pics[25] = 'IMG_2217.jpg'
+        mem_pics[26] = 'IMG_22174343.jpg'
+        mem_pics[27] = '20221119_114403.jpg'
+        mem_pics[28] = '20221117_183753.jpg'
+        mem_pics[29] = '20220930_142035.jpg'
+        mem_pics[30] = 'Fhk1w51UAAAzbVq.jpeg'
+
+
         var birth_day_dict = {
             'Mehrad': '2-25',
             'Ziyue': '3-10',
@@ -127,7 +162,7 @@
             'Quinny': '9-16',
             'Andrew': '10-15',
             'Heta': '11-24',
-            'Perfect Human': '12-1'
+            'Shane': '12-1'
 
 
 
@@ -138,9 +173,12 @@
         }
 
         function getRandomImage() {
-            var num = Math.floor(Math.random() * ImageArray.length);
-            var img = ImageArray[num];
-            document.getElementById("randImage").innerHTML = ('<img src="' + 'Media/' + img + '" class="bg" />')
+            var background_idx = Math.floor(Math.random() * ImageArray.length);
+            var background_img = ImageArray[background_idx];
+            var mem_pic_idx = Math.floor(Math.random() * mem_pics.length);
+            var mem_pic_img = mem_pics[mem_pic_idx];
+            document.getElementById("randImage").innerHTML = ('<img src="' + 'Media/' + background_img + '" class="bg" />')
+            document.getElementById("mem_pics_Image").innerHTML = ('<img src="' + 'Media/mem-pics/' + mem_pic_img + '"style=" display: block;margin-left: auto;margin-right: auto ;border: 3px solid rgb(255, 255, 255); border-radius: 25px; max-height: 680px;max-width: 1500px" />')
                 // check birthday
             var date = new Date();
             // d = date.getUTCDate()-1;
@@ -447,6 +485,11 @@
             background-attachment: fixed;
         }
         
+        .Mem_PIC {
+            Position: relative;
+            margin-top: 6%;
+        }
+        
         .img.bg {
             max-width: 1080px;
             height: 60%;
@@ -606,8 +649,7 @@
                         </font>
                     </div>
                 </div>
-            </div>
-            <!-- style=" transform: translate(320px, -1000px) -->
+            </div> -->
             <div class="mySlides">
                 <div class="container" style="top: 50%; left: 50%; transform: translate(-50%, 20%)">
                     <img src="Media\chart_bar_low.png" width="80%" alt="" style="margin-left: -175px; background-color:#ffffff ; opacity: 0.85; ">
@@ -624,7 +666,7 @@
                 </div>
             </div>
             <div class="mySlides">
-
+                <div class="Mem_PIC" id="mem_pics_Image"></div>
             </div>
     </div>
     </section>
@@ -681,7 +723,24 @@
 
 </html>
 
-s
+
+
+<!-- <script>
+    const fs = require('fs');
+    var files = fs.readdirSync('Media/mem-pic/');
+
+
+    function getRandomMemPic(files, path) {
+        console.log(files)
+        path = path || 'Media/mem-pics/'; // default path here
+        var num = Math.floor(Math.random() * files.length);
+        var img = files[num];
+        var imgStr = '<img src="' + path + img + '" alt = "">';
+        document.write(imgStr);
+        document.close();
+    }
+</script> -->
+
 <script>
     var slideIndex = 0;
     carousel();
